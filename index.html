@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victoria's Secret Wing Collection</title>
+    <style>
+        body {
+            background-color: #fff0f6;
+            font-family: "Ubuntu Sans Mono", monospace;
+            padding: 0;
+            display: flex;
+            flex-direction: row; /* 가로 배치 */
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        /* 왼쪽 컨테이너 (텍스트, 입력 필드, 버튼) */
+        .left-container {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 왼쪽 정렬 */
+            justify-content: center;
+            padding-left: 5%;
+        }
+
+        h1 {
+            font-family: cursive;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        #collection {
+            font-size: 15px;
+        }
+
+        #charInput1 {
+            padding: 8px;
+            font-size: 18px;
+            text-align: center;
+            font-family: "Ubuntu Sans Mono", monospace;
+            background-color: #ffe5f8;
+            border-radius: 5px;
+            border: 1px solid #ff85a2;
+            width: 220px;
+        }
+
+        #submitButton {
+            padding: 20px 44px;
+            background-color: #ffb3cb;
+            border: 1px solid #141211;
+            border-radius: 50px;
+            font-family: "Ubuntu Sans Mono", monospace;
+            font-size: 20px;
+            color: #141211;
+            text-decoration: none;
+            box-shadow: 0 0 0;
+            transition: all 200ms;
+            margin-top: 10px;
+        }
+
+        #submitButton:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 12px 1px #141211;
+        }
+
+        #submitButton:active {
+            transform: translateY(10px);
+            box-shadow: 0 0 0;
+        }
+
+        /* 오른쪽 컨테이너 (이미지) */
+        .right-container {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 5%;
+        }
+
+        #displayedImage {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+                padding: 20px;
+            }
+
+            .left-container, .right-container {
+                width: 100%;
+                padding: 0;
+                text-align: center;
+            }
+
+            .left-container {
+                align-items: center;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            #charInput1, #submitButton, select {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #displayedImage {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="left-container">
+        <h1>Victoria's Secret Collection</h1>
+        <label for="collection">Collection Year:</label>
+        <select id="collection">
+            <option value="">-- Select Year --</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+        </select>
+
+        <br><br>
+
+        <input type="text" id="charInput1" maxlength="1" placeholder="Enter a letter A-Z">
+
+        <br><br>
+
+        <button onclick="displayImage()" id="submitButton">Pick!</button>
+    </div>
+
+    <div class="right-container">
+        <img id="displayedImage" src="" alt="Displayed Image">
+    </div>
+    <script>
+        function displayImage() {
+            const imgElement = document.getElementById("displayedImage");
+            const inputLetter = document.getElementById("charInput1").value.toUpperCase();
+            const selectedCollection = document.getElementById("collection").value;
+
+            // 입력값이 없을 경우 경고
+            if (!inputLetter) {
+                alert("Please enter a letter.");
+                return;
+            }
+
+            // 옵션이 선택되지 않았을 경우 경고
+            if (!selectedCollection) {
+                alert("Please select a collection.");
+                return;
+            }
+
+            // 문자 → 숫자 변환 (ASCII 코드)
+            const inputNumber = inputLetter.charCodeAt(0);
+
+            // 조건에 따라 이미지 변경
+            if (selectedCollection === "2011" && inputLetter === "A") {
+                imgElement.src = "2011/2011_a.jpeg";
+            } 
+            else if (selectedCollection === "2011" && inputLetter === "B") { 
+                imgElement.src = "2011/2011_b.jpeg";
+            } 
+            else if (selectedCollection === "2011" && inputLetter === "C") {
+                imgElement.src = "2011/2011_c.jpeg";
+            } 
+            else if (selectedCollection === "2011" && inputLetter === "D") {
+                imgElement.src = "2011/2011_d.jpeg";
+            } 
+            else if (selectedCollection === "2011" && inputLetter === "E") {
+                imgElement.src = "2011/2011_e.jpeg";
+            } 
+            else if (selectedCollection === "2011" && inputLetter === "F") {
+                imgElement.src = "2011/2011_f.jpeg";
+            } 
+            else if (selectedCollection === "2011" && inputLetter === "G") {
+                imgElement.src = "2011/2011_g.jpeg";
+            } 
+            else if (selectedCollection === "2011" && inputLetter === "H") {
+                imgElement.src = "2011/2011_h.jpeg";
+            }
+            else if (selectedCollection === "2011" && inputLetter === "I") {
+                imgElement.src = "2011/2011_i.jpeg";
+            }
+            else if (selectedCollection === "2011" && inputLetter === "J") {
+                imgElement.src = "2011/2011_j.jpeg"; 
+            }
+            else if (selectedCollection === "2011" && inputLetter === "K") {
+                imgElement.src = "2011/2011_k.jpg";
+            }
+
+
+
+            else if (selectedCollection === "2012" && inputLetter === "A") {
+                imgElement.src = "2012/2012_a.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "B") {
+                imgElement.src = "2012/2012_b.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "C") {
+                imgElement.src = "2012/2012_c.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "D") {
+                imgElement.src = "2012/2012_d.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "E") {
+                imgElement.src = "2012/2012_e.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "F") {
+                imgElement.src = "2012/2012_f.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "G") {
+                imgElement.src = "2012/2012_g.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "H") {
+                imgElement.src = "2012/2012_h.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "I") {
+                imgElement.src = "2012/2012_i.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "J") {
+                imgElement.src = "2012/2012_j.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "K") {
+                imgElement.src = "2012/2012_k.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "L") {
+                imgElement.src = "2012/2012_l.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "M") {
+                imgElement.src = "2012/2012_m.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "N") {
+                imgElement.src = "2012/2012_n.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "O") {
+                imgElement.src = "2012/2012_o.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "P") {
+                imgElement.src = "2012/2012_p.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "Q") {
+                imgElement.src = "2012/2012_q.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "R") {
+                imgElement.src = "2012/2012_r.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "S") {
+                imgElement.src = "2012/2012_s.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "T") {
+                imgElement.src = "2012/2012_t.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "U") {
+                imgElement.src = "2012/2012_u.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "V") {
+                imgElement.src = "2012/2012_v.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "W") {
+                imgElement.src = "2012/2012_w.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "X") {
+                imgElement.src = "2012/2012_x.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "Y") {
+                imgElement.src = "2012/2012_y.jpg";
+            }
+            else if (selectedCollection === "2012" && inputLetter === "Z") {
+                imgElement.src = "2012/2012_z.jpg";
+            }
+
+
+            else if (selectedCollection === "2013" && inputLetter === "A") {
+                imgElement.src = "2013/2013_a.jpeg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "B") {
+                imgElement.src = "2013/2013_b.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "C") {
+                imgElement.src = "2013/2013_c.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "D") {
+                imgElement.src = "2013/2013_d.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "E") {
+                imgElement.src = "2013/2013_e.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "F") {
+                imgElement.src = "2013/2013_f.jpeg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "G") {
+                imgElement.src = "2013/2013_g.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "H") {
+                imgElement.src = "2013/2013_h.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "I") {
+                imgElement.src = "2013/2013_i.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "J") {
+                imgElement.src = "2013/2013_j.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "K") {
+                imgElement.src = "2013/2013_k.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "L") {
+                imgElement.src = "2013/2013_l.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "M") {
+                imgElement.src = "2013/2013_m.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "N") {
+                imgElement.src = "2013/2013_n.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "O") {
+                imgElement.src = "2013/2013_o.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "P") {
+                imgElement.src = "2013/2013_p.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "Q") {
+                imgElement.src = "2013/2013_q.jpeg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "R") {
+                imgElement.src = "2013/2013_r.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "S") {
+                imgElement.src = "2013/2013_s.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "T") {
+                imgElement.src = "2013/2013_t.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "U") {
+                imgElement.src = "2013/2013_u.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "V") {
+                imgElement.src = "2013/2013_v.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "W") {
+                imgElement.src = "2013/2013_w.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "X") {
+                imgElement.src = "2013/2013_x.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "Y") {
+                imgElement.src = "2013/2013_y.jpg";
+            }
+            else if (selectedCollection === "2013" && inputLetter === "Z") {
+                imgElement.src = "2013/2013_z.jpg";
+            }
+
+                
+            else {
+    alert("No image found for this combination. Try another letter.");
+    imgElement.src = "";
+    imgElement.style.display = "none";
+    return;
+}
+
+
+            // 이미지 표시
+            imgElement.style.display = "block";
+        
+}
+    </script>
+
+</body>
+</html>
